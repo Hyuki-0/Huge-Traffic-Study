@@ -1,0 +1,14 @@
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:8.0.38
+    environment:
+      MYSQL_ROOT_PASSWORD: hyuki0326
+    ports:
+      - "3306:3306"
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./data/:/var/lib/mysql
+    restart: always
