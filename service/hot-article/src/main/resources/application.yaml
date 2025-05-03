@@ -1,0 +1,7 @@
+server:
+  port: 8003
+  shutdown: graceful
+
+spring:
+  application:
+    name: hot-article

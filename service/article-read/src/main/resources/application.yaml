@@ -1,0 +1,7 @@
+server:
+  port: 8001
+  shutdown: graceful
+
+spring:
+  application:
+    name: article-read
