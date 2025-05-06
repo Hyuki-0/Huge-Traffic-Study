@@ -3,6 +3,8 @@ package hyuki.board.article.integration;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import hyuki.board.article.service.request.ArticleUpdateRequest;
+import hyuki.board.article.service.response.ArticlePageResponse;
 import hyuki.board.article.service.response.ArticleResponse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -99,6 +101,18 @@ class ArticleControllerTest {
         .uri("/v1/articles/{articleId}", articleId)
         .retrieve()
         .body(ArticleResponse.class);
+  }
+
+  @Test
+  @Order(5)
+  @DisplayName("Article Read")
+  void readAll() {
+    ArticlePageResponse response = restClient.get()
+        .uri("/v1/articles?boardId=1&pageSize=30&page=1")
+        .retrieve()
+        .body(ArticlePageResponse.class);
+
+    System.out.println("response.ge =" + response.articleCount());
   }
 
   @Getter
